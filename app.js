@@ -11,7 +11,12 @@ app.get('/', (req, res) => {
 });
 
 app.post('/qr', (req, res) => {
-    return res.json({ message: `User ID ${req.body.id} received` });
+    return res.json({ 
+        message: `User ID ${req.body.id} received`,
+        params: req.params,
+        body: req.body,
+        query: req.query
+    });
 });
 
 app.post('/test', (req, res) => {
