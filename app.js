@@ -1,4 +1,5 @@
 const express = require('express');
+const fetch = require('node-fetch');
 const app = express();
 const port = 4000;
 
@@ -10,12 +11,12 @@ app.get('/', (req, res) => {
 });
 
 app.post('/qr', (req, res) => {
-    res.json({ status: true, data: req.body });
+    return res.send(`User ID ${req.body.id} received`);
 });
 
 app.post('/test', (req, res) => {
-    res.json({ data: { tosin: 'Yes' } });
-})
+    return res.json({ data: { tosin: 'Yes' } });
+});
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
