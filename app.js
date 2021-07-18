@@ -1,7 +1,7 @@
 const express = require('express');
-const fetch = require('node-fetch');
+
 const app = express();
-const port = 4000;
+const port = 9000;
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
@@ -17,6 +17,11 @@ app.post('/qr', (req, res) => {
         body: req.body,
         query: req.query
     });
+});
+
+app.post('/tigr/events', (req, res) => {
+    console.log(req.body);
+    return res.json(req.body);
 });
 
 app.post('/test', (req, res) => {
